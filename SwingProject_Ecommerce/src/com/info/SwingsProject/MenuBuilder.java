@@ -1,7 +1,6 @@
 package com.info.SwingsProject;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.*;
 
 public class MenuBuilder {
@@ -17,233 +16,271 @@ public class MenuBuilder {
         return mb;
     }
 
-    // -------------------- ELECTRONICS --------------------
     private JMenu createElectronicsMenu() {
         JMenu electronicsMenu = new JMenu("Electronics");
 
-        electronicsMenu.add(createMenuItem("Mobiles", new String[][]{
-                {"iPhone 15 Pro", "₹1,20,000", "Latest Apple iPhone with A17 chip"},
-                {"Samsung Galaxy S24", "₹95,000", "Flagship Samsung phone with AI features"},
-                {"OnePlus 12", "₹65,000", "Fast performance and smooth display"},
-                {"Google Pixel 9", "₹70,000", "Best Android camera with AI"},
-                {"Realme X100", "₹25,000", "Budget phone with 5G support"}
-        }));
+        String[][] mobiles = {
+            {"iPhone 14", "Rs 80000", "Latest Apple smartphone"},
+            {"Samsung Galaxy S23", "Rs 70000", "Samsung phone"},
+            {"OnePlus 11", "Rs 60000", "Smooth performance phone"},
+            {"Realme 12 Pro", "Rs 30000", "Mid-range with good camera"},
+            {"Redmi Note 12", "Rs 20000", "Affordable smartphone"}
+        };
 
-        electronicsMenu.add(createMenuItem("Laptop", new String[][]{
-                {"Dell XPS 15", "₹1,50,000", "Premium ultrabook with strong performance"},
-                {"MacBook Air M3", "₹1,20,000", "Apple silicon laptop, light & fast"},
-                {"HP Spectre x360", "₹1,10,000", "Convertible laptop with touchscreen"},
-                {"Lenovo ThinkPad X1", "₹1,30,000", "Business laptop, durable build"},
-                {"Asus ROG Strix", "₹1,60,000", "Gaming beast with RGB keyboard"}
-        }));
+        String[][] laptops = {
+            {"MacBook Air", "Rs 100000", "Lightweight Apple laptop"},
+            {"Dell XPS", "Rs 90000", "Powerful ultrabook"},
+            {"HP Pavilion", "Rs 60000", "Budget friendly laptop"},
+            {"Lenovo ThinkPad", "Rs 75000", "Business laptop"},
+            {"Asus ROG", "Rs 120000", "Gaming laptop"}
+        };
 
-        electronicsMenu.add(createMenuItem("Camera", new String[][]{
-                {"Canon EOS R7", "₹80,000", "Professional DSLR with 24MP lens"},
-                {"Nikon Z50", "₹85,000", "Compact mirrorless camera"},
-                {"Sony Alpha A7", "₹1,20,000", "Full-frame mirrorless camera"},
-                {"Fujifilm X-T4", "₹95,000", "Retro style mirrorless camera"},
-                {"Panasonic Lumix G7", "₹60,000", "Great for video recording"}
-        }));
+        String[][] cameras = {
+            {"Canon EOS 1500D", "Rs 40000", "DSLR Camera"},
+            {"Nikon D3500", "Rs 45000", "Entry level DSLR"},
+            {"Sony Alpha", "Rs 60000", "Mirrorless camera"},
+            {"Fujifilm X-T4", "Rs 120000", "Professional camera"},
+            {"GoPro Hero", "Rs 30000", "Action camera"}
+        };
 
-        electronicsMenu.add(createMenuItem("Head Phones", new String[][]{
-                {"Sony WH-1000XM5", "₹25,000", "Noise-cancelling headphones"},
-                {"Bose QC 45", "₹30,000", "Comfortable and great sound"},
-                {"Apple AirPods Max", "₹60,000", "Premium Apple headphones"},
-                {"JBL Tune 760NC", "₹9,000", "Wireless with deep bass"},
-                {"Boat Rockerz 550", "₹2,500", "Budget headphones"}
-        }));
+        String[][] headphones = {
+            {"Sony WH-1000XM4", "Rs 25000", "Noise cancelling"},
+            {"Bose QC 45", "Rs 30000", "Premium headphones"},
+            {"JBL Tune", "Rs 5000", "Bass boosted"},
+            {"Boat Rockerz", "Rs 2000", "Budget headphones"},
+            {"Apple AirPods Pro", "Rs 25000", "Wireless earbuds"}
+        };
 
-        electronicsMenu.add(createMenuItem("Mouse", new String[][]{
-                {"Logitech MX Master 3", "₹7,000", "Ergonomic wireless mouse"},
-                {"Razer DeathAdder V2", "₹5,000", "Gaming mouse with RGB"},
-                {"HP Wireless Mouse", "₹1,200", "Compact and budget friendly"},
-                {"Dell Bluetooth Mouse", "₹1,500", "Office use wireless mouse"},
-                {"Corsair Harpoon RGB", "₹3,000", "Gaming mouse with lighting"}
-        }));
+        String[][] mice = {
+            {"Logitech MX Master", "Rs 8000", "Ergonomic mouse"},
+            {"HP Wireless Mouse", "Rs 1500", "Basic wireless"},
+            {"Razer DeathAdder", "Rs 6000", "Gaming mouse"},
+            {"Dell Optical", "Rs 700", "Simple wired mouse"},
+            {"Microsoft Surface Mouse", "Rs 5000", "Premium mouse"}
+        };
+
+        JMenuItem mobilesItem = new JMenuItem("Mobiles");
+        mobilesItem.addActionListener(e -> Ecommerce.showItemsPage("Mobiles", mobiles));
+
+        JMenuItem laptopsItem = new JMenuItem("Laptops");
+        laptopsItem.addActionListener(e -> Ecommerce.showItemsPage("Laptops", laptops));
+
+        JMenuItem camerasItem = new JMenuItem("Cameras");
+        camerasItem.addActionListener(e -> Ecommerce.showItemsPage("Cameras", cameras));
+
+        JMenuItem headphonesItem = new JMenuItem("Headphones");
+        headphonesItem.addActionListener(e -> Ecommerce.showItemsPage("Headphones", headphones));
+
+        JMenuItem miceItem = new JMenuItem("Mouse");
+        miceItem.addActionListener(e -> Ecommerce.showItemsPage("Mouse", mice));
+
+        electronicsMenu.add(mobilesItem);
+        electronicsMenu.add(laptopsItem);
+        electronicsMenu.add(camerasItem);
+        electronicsMenu.add(headphonesItem);
+        electronicsMenu.add(miceItem);
 
         return electronicsMenu;
     }
 
-    // -------------------- FURNITURE --------------------
     private JMenu createFurnitureMenu() {
         JMenu furnitureMenu = new JMenu("Furniture");
 
-        furnitureMenu.add(createMenuItem("Sofa", new String[][]{
-                {"3-Seater Sofa", "₹30,000", "Comfortable sofa with cushions"},
-                {"Leather Sofa", "₹45,000", "Luxurious leather finish"},
-                {"Recliner Sofa", "₹50,000", "Push-back recliner style"},
-                {"Wooden Sofa", "₹35,000", "Solid teak wood sofa"},
-                {"L-Shaped Sofa", "₹55,000", "Modern corner sofa"}
-        }));
+        String[][] sofas = {
+            {"Leather Sofa", "Rs 30000", "3 Seater leather sofa"},
+            {"Fabric Sofa", "Rs 20000", "Comfortable fabric sofa"},
+            {"Recliner Sofa", "Rs 40000", "Adjustable recliner"},
+            {"Wooden Sofa", "Rs 25000", "Classic wooden style"},
+            {"Corner Sofa", "Rs 35000", "Space saving sofa"}
+        };
 
-        furnitureMenu.add(createMenuItem("Table", new String[][]{
-                {"Dining Table", "₹20,000", "6-seater wooden dining table"},
-                {"Coffee Table", "₹10,000", "Glass-top living room table"},
-                {"Study Table", "₹8,000", "Compact study/work desk"},
-                {"Bedside Table", "₹5,000", "Small side table for bedroom"},
-                {"Glass Top Table", "₹12,000", "Stylish table with glass finish"}
-        }));
+        String[][] tables = {
+            {"Dining Table", "Rs 20000", "6 Seater dining table"},
+            {"Coffee Table", "Rs 5000", "Small wooden table"},
+            {"Glass Table", "Rs 15000", "Modern glass top"},
+            {"Study Table", "Rs 8000", "Compact study table"},
+            {"Office Table", "Rs 12000", "Workstation table"}
+        };
 
-        furnitureMenu.add(createMenuItem("Chair", new String[][]{
-                {"Office Chair", "₹5,000", "Adjustable height office chair"},
-                {"Plastic Chair", "₹800", "Lightweight plastic chair"},
-                {"Rocking Chair", "₹6,500", "Wooden rocking chair"},
-                {"Dining Chair", "₹2,000", "Dining table chair set"},
-                {"Armchair", "₹7,000", "Comfortable armchair"}
-        }));
+        String[][] chairs = {
+            {"Office Chair", "Rs 7000", "Ergonomic chair"},
+            {"Dining Chair", "Rs 2000", "Wooden dining chair"},
+            {"Plastic Chair", "Rs 500", "Simple plastic chair"},
+            {"Rocking Chair", "Rs 6000", "Relaxing chair"},
+            {"Recliner Chair", "Rs 10000", "Comfort recliner"}
+        };
 
-        furnitureMenu.add(createMenuItem("Bed", new String[][]{
-                {"King Size Bed", "₹40,000", "Spacious and strong"},
-                {"Queen Size Bed", "₹35,000", "Perfect for couples"},
-                {"Single Bed", "₹15,000", "Compact for one person"},
-                {"Bunk Bed", "₹20,000", "Best for kids"},
-                {"Folding Bed", "₹10,000", "Easy to move and store"}
-        }));
+        String[][] beds = {
+            {"Single Bed", "Rs 10000", "Wooden single bed"},
+            {"Double Bed", "Rs 20000", "King size bed"},
+            {"Bunk Bed", "Rs 15000", "Kids bunk bed"},
+            {"Sofa Bed", "Rs 25000", "Convertible sofa bed"},
+            {"Storage Bed", "Rs 30000", "Bed with storage"}
+        };
 
-        furnitureMenu.add(createMenuItem("Couch", new String[][]{
-                {"Fabric Couch", "₹25,000", "Soft and cozy"},
-                {"Leather Couch", "₹40,000", "Stylish leather couch"},
-                {"Sectional Couch", "₹55,000", "Spacious and modern"},
-                {"Pull-out Couch", "₹35,000", "Can convert to bed"},
-                {"Modern Couch", "₹30,000", "Trendy design"}
-        }));
+        String[][] couches = {
+            {"Luxury Couch", "Rs 40000", "Premium couch"},
+            {"Compact Couch", "Rs 15000", "Space saving"},
+            {"Modern Couch", "Rs 25000", "Trendy couch"},
+            {"Vintage Couch", "Rs 30000", "Classic style"},
+            {"L-shaped Couch", "Rs 35000", "Spacious couch"}
+        };
+
+        JMenuItem sofasItem = new JMenuItem("Sofas");
+        sofasItem.addActionListener(e -> Ecommerce.showItemsPage("Sofas", sofas));
+
+        JMenuItem tablesItem = new JMenuItem("Tables");
+        tablesItem.addActionListener(e -> Ecommerce.showItemsPage("Tables", tables));
+
+        JMenuItem chairsItem = new JMenuItem("Chairs");
+        chairsItem.addActionListener(e -> Ecommerce.showItemsPage("Chairs", chairs));
+
+        JMenuItem bedsItem = new JMenuItem("Beds");
+        bedsItem.addActionListener(e -> Ecommerce.showItemsPage("Beds", beds));
+
+        JMenuItem couchesItem = new JMenuItem("Couches");
+        couchesItem.addActionListener(e -> Ecommerce.showItemsPage("Couches", couches));
+
+        furnitureMenu.add(sofasItem);
+        furnitureMenu.add(tablesItem);
+        furnitureMenu.add(chairsItem);
+        furnitureMenu.add(bedsItem);
+        furnitureMenu.add(couchesItem);
 
         return furnitureMenu;
     }
 
-    // -------------------- CLOTHING --------------------
     private JMenu createClothingMenu() {
         JMenu clothingMenu = new JMenu("Clothing");
 
-        clothingMenu.add(createMenuItem("Women", new String[][]{
-                {"Kurti", "₹1,200", "Traditional cotton kurti"},
-                {"Saree", "₹2,500", "Silk saree for occasions"},
-                {"Salwar Suit", "₹1,800", "Comfortable daily wear"},
-                {"Jeans", "₹1,500", "Denim stretch jeans"},
-                {"Tops", "₹800", "Trendy western tops"}
-        }));
+        String[][] women = {
+            {"Saree", "Rs 2000", "Traditional Indian saree"},
+            {"Kurti", "Rs 800", "Cotton Kurti"},
+            {"Jeans", "Rs 1500", "Blue denim jeans"},
+            {"Top", "Rs 1000", "Trendy top"},
+            {"Dress", "Rs 2500", "Party wear dress"}
+        };
 
-        clothingMenu.add(createMenuItem("Men", new String[][]{
-                {"Shirt", "₹1,800", "Formal cotton shirt"},
-                {"T-Shirt", "₹700", "Casual wear"},
-                {"Blazer", "₹4,500", "Perfect for office/parties"},
-                {"Jeans", "₹1,600", "Slim fit jeans"},
-                {"Formal Pants", "₹2,000", "Business trousers"}
-        }));
+        String[][] men = {
+            {"Shirt", "Rs 1200", "Formal shirt"},
+            {"T-Shirt", "Rs 800", "Casual t-shirt"},
+            {"Jeans", "Rs 2000", "Slim fit jeans"},
+            {"Suit", "Rs 5000", "Business suit"},
+            {"Kurta", "Rs 1500", "Traditional kurta"}
+        };
 
-        clothingMenu.add(createMenuItem("Kids", new String[][]{
-                {"Kids Frock", "₹600", "Cute frock for girls"},
-                {"Kids Jeans", "₹800", "Denim for kids"},
-                {"Kids T-Shirt", "₹400", "Casual wear for kids"},
-                {"Kids Jacket", "₹1,200", "Winter jacket"},
-                {"Kids Shorts", "₹500", "Summer shorts"}
-        }));
+        String[][] kids = {
+            {"Kids Frock", "Rs 1000", "Beautiful frock"},
+            {"Kids Shirt", "Rs 600", "Cotton shirt"},
+            {"Kids Shorts", "Rs 500", "Casual shorts"},
+            {"Kids Jeans", "Rs 800", "Denim jeans"},
+            {"Kids Kurta", "Rs 900", "Traditional kurta"}
+        };
 
-        clothingMenu.add(createMenuItem("Girls", new String[][]{
-                {"Party Dress", "₹2,500", "Occasion wear"},
-                {"School Uniform", "₹1,000", "Daily school uniform"},
-                {"Jeans", "₹900", "Trendy jeans"},
-                {"Top", "₹600", "Casual wear"},
-                {"Skirt", "₹800", "Stylish skirt"}
-        }));
+        String[][] girls = {
+            {"Skirt", "Rs 700", "Stylish skirt"},
+            {"Leggings", "Rs 500", "Comfort leggings"},
+            {"Top", "Rs 800", "Trendy top"},
+            {"Frock", "Rs 1200", "Party wear frock"},
+            {"Jumpsuit", "Rs 1500", "Modern jumpsuit"}
+        };
 
-        clothingMenu.add(createMenuItem("Boys", new String[][]{
-                {"Boys Jeans", "₹900", "Trendy jeans for boys"},
-                {"Boys Shirt", "₹700", "Formal shirt"},
-                {"Boys T-Shirt", "₹500", "Casual T-Shirt"},
-                {"Boys Hoodie", "₹1,200", "Winter hoodie"},
-                {"Boys Shorts", "₹600", "Summer shorts"}
-        }));
+        String[][] boys = {
+            {"Shirt", "Rs 1000", "Checked shirt"},
+            {"T-Shirt", "Rs 600", "Sports t-shirt"},
+            {"Jeans", "Rs 1200", "Casual jeans"},
+            {"Shorts", "Rs 700", "Cotton shorts"},
+            {"Blazer", "Rs 3000", "Formal blazer"}
+        };
+
+        JMenuItem womenItem = new JMenuItem("Women");
+        womenItem.addActionListener(e -> Ecommerce.showItemsPage("Women", women));
+
+        JMenuItem menItem = new JMenuItem("Men");
+        menItem.addActionListener(e -> Ecommerce.showItemsPage("Men", men));
+
+        JMenuItem kidsItem = new JMenuItem("Kids");
+        kidsItem.addActionListener(e -> Ecommerce.showItemsPage("Kids", kids));
+
+        JMenuItem girlsItem = new JMenuItem("Girls");
+        girlsItem.addActionListener(e -> Ecommerce.showItemsPage("Girls", girls));
+
+        JMenuItem boysItem = new JMenuItem("Boys");
+        boysItem.addActionListener(e -> Ecommerce.showItemsPage("Boys", boys));
+
+        clothingMenu.add(womenItem);
+        clothingMenu.add(menItem);
+        clothingMenu.add(kidsItem);
+        clothingMenu.add(girlsItem);
+        clothingMenu.add(boysItem);
 
         return clothingMenu;
     }
 
-    // -------------------- GROCERY --------------------
     private JMenu createGroceriesMenu() {
         JMenu groceriesMenu = new JMenu("Grocery");
 
-        groceriesMenu.add(createMenuItem("Fruits", new String[][]{
-                {"Apples", "₹200/kg", "Fresh organic apples"},
-                {"Bananas", "₹60/dozen", "Ripe yellow bananas"},
-                {"Oranges", "₹120/kg", "Juicy sweet oranges"},
-                {"Grapes", "₹150/kg", "Green seedless grapes"},
-                {"Mangoes", "₹250/kg", "Seasonal Alphonso mangoes"}
-        }));
+        String[][] fruits = {
+            {"Apple", "Rs 200", "Fresh apples"},
+            {"Banana", "Rs 50", "Yellow bananas"},
+            {"Orange", "Rs 80", "Sweet oranges"},
+            {"Mango", "Rs 120", "Seasonal mangoes"},
+            {"Grapes", "Rs 90", "Green grapes"}
+        };
 
-        groceriesMenu.add(createMenuItem("Vegetables", new String[][]{
-                {"Carrots", "₹100/kg", "Farm-fresh carrots"},
-                {"Tomatoes", "₹40/kg", "Fresh red tomatoes"},
-                {"Potatoes", "₹35/kg", "Good quality potatoes"},
-                {"Onions", "₹50/kg", "Kitchen essential onions"},
-                {"Spinach", "₹30/bunch", "Green leafy spinach"}
-        }));
+        String[][] vegetables = {
+            {"Potato", "Rs 40", "Fresh potatoes"},
+            {"Tomato", "Rs 30", "Red tomatoes"},
+            {"Onion", "Rs 50", "Farm onions"},
+            {"Carrot", "Rs 60", "Orange carrots"},
+            {"Spinach", "Rs 25", "Green spinach"}
+        };
 
-        groceriesMenu.add(createMenuItem("Dairy Products", new String[][]{
-                {"Amul Milk", "₹60/L", "Pure and fresh cow milk"},
-                {"Paneer", "₹350/kg", "Soft cottage cheese"},
-                {"Cheese", "₹400/kg", "Delicious dairy cheese"},
-                {"Curd", "₹80/kg", "Thick and fresh curd"},
-                {"Butter", "₹450/kg", "Amul butter pack"}
-        }));
+        String[][] dairy = {
+            {"Milk", "Rs 50", "1 litre packet"},
+            {"Curd", "Rs 40", "Fresh curd"},
+            {"Cheese", "Rs 150", "Cheddar cheese"},
+            {"Butter", "Rs 120", "Amul butter"},
+            {"Paneer", "Rs 200", "Fresh paneer"}
+        };
 
-        groceriesMenu.add(createMenuItem("Rice", new String[][]{
-                {"Basmati Rice", "₹700/5kg", "Premium quality rice"},
-                {"Sona Masoori Rice", "₹500/5kg", "Popular South Indian rice"},
-                {"Brown Rice", "₹600/5kg", "Healthy brown rice"},
-                {"Steamed Rice", "₹550/5kg", "Everyday rice"},
-                {"Idli Rice", "₹650/5kg", "Perfect for idli and dosa"}
-        }));
+        String[][] rice = {
+            {"Basmati Rice", "Rs 100", "Premium rice"},
+            {"Brown Rice", "Rs 80", "Healthy rice"},
+            {"Sona Masoori", "Rs 90", "Daily use rice"},
+            {"Jasmine Rice", "Rs 150", "Aromatic rice"},
+            {"Parboiled Rice", "Rs 70", "Boiled rice"}
+        };
 
-        groceriesMenu.add(createMenuItem("Snacks", new String[][]{
-                {"Lays Chips", "₹20", "Tasty potato chips"},
-                {"Kurkure", "₹10", "Crispy snack"},
-                {"Popcorn", "₹50", "Ready-to-eat popcorn"},
-                {"Biscuits", "₹30", "Parle-G biscuits"},
-                {"Namkeen", "₹40", "Indian namkeen mix"}
-        }));
+        String[][] snacks = {
+            {"Chips", "Rs 20", "Potato chips"},
+            {"Biscuits", "Rs 30", "Sweet biscuits"},
+            {"Namkeen", "Rs 50", "Spicy mixture"},
+            {"Chocolate", "Rs 100", "Milk chocolate"},
+            {"Popcorn", "Rs 40", "Salted popcorn"}
+        };
+
+        JMenuItem fruitsItem = new JMenuItem("Fruits");
+        fruitsItem.addActionListener(e -> Ecommerce.showItemsPage("Fruits", fruits));
+
+        JMenuItem vegetablesItem = new JMenuItem("Vegetables");
+        vegetablesItem.addActionListener(e -> Ecommerce.showItemsPage("Vegetables", vegetables));
+
+        JMenuItem dairyItem = new JMenuItem("Dairy Products");
+        dairyItem.addActionListener(e -> Ecommerce.showItemsPage("Dairy Products", dairy));
+
+        JMenuItem riceItem = new JMenuItem("Rice");
+        riceItem.addActionListener(e -> Ecommerce.showItemsPage("Rice", rice));
+
+        JMenuItem snacksItem = new JMenuItem("Snacks");
+        snacksItem.addActionListener(e -> Ecommerce.showItemsPage("Snacks", snacks));
+
+        groceriesMenu.add(fruitsItem);
+        groceriesMenu.add(vegetablesItem);
+        groceriesMenu.add(dairyItem);
+        groceriesMenu.add(riceItem);
+        groceriesMenu.add(snacksItem);
 
         return groceriesMenu;
-    }
-
-    // -------------------- HELPER METHOD --------------------
-    private JMenuItem createMenuItem(String menuName, String[][] items) {
-        JMenuItem item = new JMenuItem(menuName);
-        item.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                showItemsPage(menuName, items);
-            }
-        });
-        return item;
-    }
-
-    private void showItemsPage(String category, String[][] items) {
-        JFrame itemsFrame = new JFrame(category + " Page");
-        itemsFrame.setSize(600, 500);
-
-        JPanel mainPanel = new JPanel();
-        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
-        mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-
-        for (String[] i : items) {
-            JPanel productPanel = new JPanel();
-            productPanel.setLayout(new GridLayout(3, 1));
-            productPanel.setBorder(BorderFactory.createLineBorder(Color.black));
-
-            JLabel nameLabel = new JLabel("Name: " + i[0]);
-            JLabel priceLabel = new JLabel("Price: " + i[1]);
-            JLabel descLabel = new JLabel("Description: " + i[2]);
-
-            productPanel.add(nameLabel);
-            productPanel.add(priceLabel);
-            productPanel.add(descLabel);
-
-            mainPanel.add(productPanel);
-            mainPanel.add(Box.createRigidArea(new Dimension(0, 10)));
-        }
-
-        JScrollPane scrollPane = new JScrollPane(mainPanel);
-        itemsFrame.add(scrollPane);
-
-        itemsFrame.setVisible(true);
     }
 }
